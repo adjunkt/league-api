@@ -18,6 +18,3 @@
 
 # Ignore sensitive
 .env
-
-# Ignore git
-*/.gitkeep

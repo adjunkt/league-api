@@ -19,7 +19,7 @@ there are changes to the `Gemfile` or  `Dockerfile`.
 
 ```
 
-### Create your database.  
+#### Create your database.  
 
 ```
 
@@ -27,7 +27,7 @@ docker-compose run web rake db:create
 
 ```
 
-### Start the app
+#### Start the app
 
 ```
 
@@ -35,7 +35,7 @@ docker-compose up
 
 ```
 
-### Bundling and Rebuilding
+#### Bundling and Rebuilding
 
 Only the latter is required for non gem related changes
 
@@ -44,6 +44,26 @@ Only the latter is required for non gem related changes
 docker-compose run web bundle install
 
 docker-compose up --build
+
+```
+
+#### Helpful commands
+
+Console
+
+```
+
+docker-compose run web bash
+
+
+```
+
+Rake commands
+
+```
+
+docker-compose run web rake db:migrate
+
 
 ```
 
