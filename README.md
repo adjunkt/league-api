@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment setup with docker
 
-Things you may want to cover:
 
-* Ruby version
+#### Setup docker container.  
 
-* System dependencies
+You should not have to run this command unless
+there are changes to the `Gemfile` or  `Dockerfile`.
 
-* Configuration
+```
 
-* Database creation
+> docker-compose build
 
-* Database initialization
+```
 
-* How to run the test suite
+### Create your database.  
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+docker-compose run web rake db:create
 
-* ...
+```
+
+### Start the app
+
+```
+
+docker-compose up
+
+```
