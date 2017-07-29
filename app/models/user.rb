@@ -7,4 +7,7 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable
+
+  before_create :skip_confirmation_notification!
+  validates :email, uniqueness: true
 end
