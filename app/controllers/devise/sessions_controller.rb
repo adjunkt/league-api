@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Devise::SessionsController < ApplicationController
   def create
 
   end
