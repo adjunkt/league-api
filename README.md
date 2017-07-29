@@ -49,7 +49,7 @@ Only the latter is required for non gem related changes
 
 #### Helpful commands
 
-Console
+Rails console
 
 ```
 
@@ -57,6 +57,15 @@ Console
 
 
 ```
+
+PSQL interactive shell
+
+```
+
+docker-compose run db psql -h db -U postgres
+
+```
+
 
 Rake commands
 
