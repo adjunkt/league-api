@@ -1,24 +1,79 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment setup with docker
 
-Things you may want to cover:
+Host Url: http://localhost:3111
 
-* Ruby version
+Host Port: 3111
 
-* System dependencies
+Web App Port: 3111
 
-* Configuration
+#### Setup docker container.  
 
-* Database creation
+You should not have to run this command unless
+there are changes to the `Gemfile` or  `Dockerfile`.
 
-* Database initialization
+```
 
-* How to run the test suite
+> docker-compose build
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+#### Create your database.  
 
-* ...
+```
+
+> docker-compose run web rake db:create
+
+```
+
+#### Start the app
+
+```
+
+> docker-compose up
+
+```
+
+#### Bundling and Rebuilding
+
+Only the latter is required for non gem related changes
+
+```
+
+> docker-compose run web bundle install
+
+> docker-compose up --build
+
+```
+
+#### Helpful commands
+
+Rails console
+
+```
+
+> docker-compose run web bash
+
+
+```
+
+PSQL interactive shell
+
+```
+
+docker-compose run db psql -h db -U postgres
+
+```
+
+
+Rake commands
+
+```
+
+> docker-compose run web rake db:migrate
+
+
+```
+
+These instruction where mostly grabbed from the sample app here: https://docs.docker.com/compose/rails/
