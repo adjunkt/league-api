@@ -30,6 +30,11 @@ gem 'bcrypt', '~> 3.1.11'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'pry-rails'
+  gem 'rspec-rails', '3.6'
+  gem 'factory_girl_rails', '4.8'
+  gem 'database_cleaner', '1.6.1'
 end
 
 group :development do
