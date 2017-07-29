@@ -2,11 +2,11 @@
 
 ## Environment setup with docker
 
-Host Url: http://localhost:6111
+Host Url: http://localhost:3111
 
-Host Port: 6111
+Host Port: 3111
 
-Web App Port: 6111
+Web App Port: 3111
 
 #### Setup docker container.  
 
@@ -23,7 +23,7 @@ there are changes to the `Gemfile` or  `Dockerfile`.
 
 ```
 
-docker-compose run web rake db:create
+> docker-compose run web rake db:create
 
 ```
 
@@ -31,7 +31,7 @@ docker-compose run web rake db:create
 
 ```
 
-docker-compose up
+> docker-compose up
 
 ```
 
@@ -41,9 +41,9 @@ Only the latter is required for non gem related changes
 
 ```
 
-docker-compose run web bundle install
+> docker-compose run web bundle install
 
-docker-compose up --build
+> docker-compose up --build
 
 ```
 
@@ -53,7 +53,7 @@ Console
 
 ```
 
-docker-compose run web bash
+> docker-compose run web bash
 
 
 ```
@@ -62,7 +62,7 @@ Rake commands
 
 ```
 
-docker-compose run web rake db:migrate
+> docker-compose run web rake db:migrate
 
 
 ```
