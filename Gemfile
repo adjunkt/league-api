@@ -10,8 +10,15 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
-# Used for authentication
+# Use to easily get values from .env
+gem 'dotenv', '2.2.0'
+
+# Used  devise for user authentication
 gem 'devise'
+# The latest version on RubyGems does not support devise > 4.0
+gem 'devise_security_extension',
+  git: 'https://github.com/phatworx/devise_security_extension.git',
+  branch: 'master'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

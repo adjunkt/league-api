@@ -6,8 +6,12 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable
+         :secure_validatable,
+         :password_archivable,
+         :confirmable
 
+  # Keeping this for testing only
   before_create :skip_confirmation_notification!
+
   validates :email, uniqueness: true
 end
