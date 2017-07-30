@@ -20,6 +20,9 @@ gem 'devise_security_extension',
   git: 'https://github.com/phatworx/devise_security_extension.git',
   branch: 'master'
 
+# Use doorkeeper for token authentication
+gem 'doorkeeper', '4.2.5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
