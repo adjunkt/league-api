@@ -16,6 +16,9 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Make env accessable anywhere via ENV['VAR']
+Dotenv.load
+
 module League
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
