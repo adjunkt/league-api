@@ -1,5 +1,7 @@
 # README
 
+[![CircleCI](https://circleci.com/gh/adjunkt/league-api.svg?style=svg)](https://circleci.com/gh/adjunkt/league-api)
+
 ## Environment setup with docker
 
 Host Url: http://localhost:3111
