@@ -7,12 +7,13 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4.1-node-browsers
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+      - image: circleci/ruby:2.4.1-node-browsers
+        environment:
+        - RAILS_ENV=test
+        - RACK_ENV=test
+      - image: postgres: 9.6
+        - POSTGRES_USER=ubuntu
+        - POSTGRES_DB=league_test
 
     working_directory: ~/repo
 
@@ -27,18 +28,28 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+        name: Install dependencies
+        command: |
+          apt-get update --qq && apt-get install -y build-essential postgresql libpq-dev nodejs rake
+
+      - run:
+        name: Install Ruby Dependencies
+        command: |
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+
+      - run:
+        - name: Set up DB
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:schema:load --trace
+             bundle exec db:migrate
+          environment:
+            DATABASE_URL: "postgres://ubuntu@localhost:5432/league_test"
 
       # run tests!
       - run:
