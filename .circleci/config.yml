@@ -29,10 +29,10 @@ jobs:
           - v1-dependencies-
 
       - name: Install dependencies
-        command: apt-get update --qq && apt-get install -y build-essential postgresql libpq-dev nodejs rake
+          command: apt-get update --qq && apt-get install -y build-essential postgresql libpq-dev nodejs rake
 
       - name: Install Ruby Dependencies
-        command: bundle install --jobs=4 --retry=3 --path vendor/bundle
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
@@ -40,11 +40,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
-        - name: Set up DB
+          name: Set up DB
           command: |
             bundle exec rake db:create
             bundle exec rake db:schema:load --trace
-             bundle exec db:migrate
+            bundle exec db:migrate
           environment:
             DATABASE_URL: "postgres://ubuntu@localhost:5432/league_test"
 
