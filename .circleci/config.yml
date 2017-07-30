@@ -42,7 +42,7 @@ jobs:
           command: |
             bundle exec rake db:create
             bundle exec rake db:schema:load --trace
-            bundle exec db:migrate
+            bundle exec rake db:migrate
           environment:
             DATABASE_URL: "postgres://ubuntu@localhost:5432/league_test"
 
