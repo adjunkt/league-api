@@ -12,6 +12,7 @@ jobs:
         - RAILS_ENV=test
         - RACK_ENV=test
       - image: postgres:9.6
+        environment:
         - POSTGRES_USER=ubuntu
         - POSTGRES_DB=league_test
 
