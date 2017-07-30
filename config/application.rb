@@ -35,7 +35,7 @@ module League
       allow do
         origins 'http://localhost:1111'
 
-        resource '/oauth/token',
+        resource '/oauth/*',
           headers: :any,
           methods: %i(post delete options),
           credentials: true
