@@ -15,8 +15,21 @@ ActiveRecord::Schema.define(version: 20170730001732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "oauth_access_grants", force: :cascade do |t|
+    t.integer  "resource_owner_id", null: false
+    t.integer  "application_id",    null: false
+    t.string   "token",             null: false
+    t.integer  "expires_in",        null: false
+    t.text     "redirect_uri",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "revoked_at"
+    t.string   "scopes"
+    t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
+  end
+
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.integer  "resource_owner_id"
+    t.integer  "application_id"
     t.string   "token",                               null: false
     t.string   "refresh_token"
     t.integer  "expires_in"
@@ -27,6 +40,17 @@ ActiveRecord::Schema.define(version: 20170730001732) do
     t.index ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true, using: :btree
     t.index ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id", using: :btree
     t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true, using: :btree
+  end
+
+  create_table "oauth_applications", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "uid",                       null: false
+    t.string   "secret",                    null: false
+    t.text     "redirect_uri",              null: false
+    t.string   "scopes",       default: "", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
   end
 
   create_table "old_passwords", force: :cascade do |t|
@@ -63,5 +87,7 @@ ActiveRecord::Schema.define(version: 20170730001732) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
 end

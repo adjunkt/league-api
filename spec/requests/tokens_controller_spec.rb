@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Devise::SessionsController, type: :request do
+describe TokensController, type: :request do
   let (:user) do
     create(
       :user,
@@ -9,12 +9,13 @@ describe Devise::SessionsController, type: :request do
     )
   end
 
-  describe 'sessions#create' do
+  describe 'tokens#create' do
     it 'is ok' do
       post(
-        '/users/login',
+        '/oauth/token',
         params: {
-          identification: user.email,
+          grant_type: 'password',
+          username: user.email,
           password: 'P@ssw0rd'
         }
       )
