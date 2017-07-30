@@ -51,7 +51,7 @@ jobs:
           name: run tests
           command: |
             mkdir /tmp/test-results
-            TEST_FIES="spec"
+            TEST_FILES="spec"
 
             bundle exec rspec --require spec_helper --format progress \
                             --format RspecJunitFormatter \
