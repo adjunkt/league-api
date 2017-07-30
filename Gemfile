@@ -20,6 +20,9 @@ gem 'devise_security_extension',
   git: 'https://github.com/phatworx/devise_security_extension.git',
   branch: 'master'
 
+# Cross-Origin
+gem 'rack-cors', require: 'rack/cors'
+
 # Use doorkeeper for token authentication
 gem 'doorkeeper', '4.2.5'
 
