@@ -1,12 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe Devise::SessionsController, type: :controller do
-  describe '#create' do
+describe Devise::SessionsController, type: :request do
+  let (:user) do
+    create(
+      :user,
+      email: 'leagueuser@example.com',
+      password: 'P@ssw0rd'
+    )
+  end
+
+  describe 'sessions#create' do
     it 'is ok' do
-      expect(true).to be true
+      post(
+        '/users/login',
+        params: {
+          identification: user.email,
+          password: 'P@ssw0rd'
+        }
+      )
+
+      binding.pry
+      # expect(response).to be :ok
     end
   end
 
-  describe '#destroy' do
-  end
+  describe '#destroy' do; end
 end
