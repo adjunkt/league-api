@@ -8,12 +8,10 @@ development: &default
   host: <%= ENV['DB_HOST'] %>
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  <<: *default
   username: <%= ENV['DB_USER'] %>
   host: <%= ENV['DB_HOST'] %>
-  database: <%= ENV['DB_NAME_TEST'] %>
+  database: league_test
 
 staging:
   <<: *default

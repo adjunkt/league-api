@@ -48,7 +48,7 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: Run tests
           command: |
             mkdir /tmp/test-results
             TEST_FILES="spec"
