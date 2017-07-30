@@ -1,2 +1,1 @@
-class TokensController < Doorkeeper::TokensController
-end
+class TokensController < Doorkeeper::TokensController; end

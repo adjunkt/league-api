@@ -62,7 +62,23 @@ describe TokensController, type: :request do
     end
   end
 
-  describe '#destroy' do; end
+  describe 'tokens#destroy' do
+    it 'valid token is revoked' do
+      access_token = create(:access_token)
+
+      post('/oauth/revoke', params: { token: access_token.token })
+
+      expect(response.status).to eq(200)
+      access_token.reload
+      expect(access_token.acceptable?(nil)).to be(false)
+    end
+
+    it 'invalid token does not error' do
+      post('/oauth/revoke', params: { token: 'alekfjalefkjaelfkj' })
+
+      expect(response.status).to eq(200)
+    end
+  end
 end
 
 private
