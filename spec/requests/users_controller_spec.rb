@@ -28,20 +28,16 @@ describe UsersController, type: :request do
       expect(response.status).to eq(401)
       expect(errors[:detail]).to eq('The access token is invalid')
     end
-    #
-    # it 'errors with invalid Authorization' do
-    #   user = create(:user)
-    #   headers = headers_for_user(user)
-    #   headers['Authorization'] += 'garbage'
-    #
-    #   get('/users/me', headers: headers)
-    #
-    #   expect(response.status).to eq(401)
-    #   expect(json).to(
-    #     have_jsonapi_error(
-    #       authentication_error('The access token is invalid')
-    #     )
-    #   )
-    # end
+
+    it 'errors with invalid Authorization' do
+      user = create(:user)
+      headers = headers_for_user(user)
+      headers['Authorization'] += 'adjunkt'
+
+      get('/users/me', headers: headers)
+
+      expect(response.status).to eq(401)
+      expect(errors[:detail]).to eq('The access token is invalid')
+    end
   end
 end
