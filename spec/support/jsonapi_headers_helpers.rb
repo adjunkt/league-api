@@ -1,4 +1,6 @@
 module JSONAPIHeadersHelpers
+  JSONAPI_MEDIA_TYPE = 'application/vnd.api+json'.freeze
+
   def jsonapi_media_type_headers
     {
       'ACCEPT' => JSONAPI_MEDIA_TYPE,
