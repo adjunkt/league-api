@@ -13,6 +13,9 @@ gem 'puma', '~> 3.0'
 # Use to easily get values from .env
 gem 'dotenv', '2.2.0'
 
+# Get fully JSONAPI complient responses!
+gem 'jsonapi-resources'
+
 # Used  devise for user authentication
 gem 'devise'
 # The latest version on RubyGems does not support devise > 4.0
