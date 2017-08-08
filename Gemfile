@@ -23,11 +23,14 @@ gem 'devise_security_extension',
   git: 'https://github.com/phatworx/devise_security_extension.git',
   branch: 'master'
 
-# Cross-Origin
-gem 'rack-cors', require: 'rack/cors'
+# Use rolify to manage roles
+gem 'rolify'
 
 # Use doorkeeper for token authentication
 gem 'doorkeeper', '4.2.5'
+
+# Cross-Origin
+gem 'rack-cors', require: 'rack/cors'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
