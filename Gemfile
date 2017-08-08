@@ -26,6 +26,9 @@ gem 'devise_security_extension',
 # Use rolify to manage roles
 gem 'rolify'
 
+# Use pundit to authorize resources
+gem "pundit"
+
 # Use doorkeeper for token authentication
 gem 'doorkeeper', '4.2.5'
 
