@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include JSONAPI::ActsAsResourceController
+  include Pundit
 
   rescue_from AuthenticationError, with: :handle_exceptions
 
