@@ -9,7 +9,7 @@ describe UsersController, type: :request do
 
       expect(response.status).to eq(200)
       expect(type).to eq('users')
-      expect(id).to eq('1')
+      expect(id).to eq(user.id.to_s)
       expect(attributes).to include(
         first_name: user.first_name,
         last_name: user.last_name,
@@ -17,7 +17,7 @@ describe UsersController, type: :request do
       )
     end
 
-    it 'errors without Authorization' do
+    it 'errors without authorization' do
       user = create(:user)
 
       get(
