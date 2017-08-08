@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - 'vendor/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.0
   DisplayCopNames: true
   Rails:
     Enabled: true
@@ -26,6 +28,9 @@ Style/StringLiterals:
   SupportedStyles:
     - single_quotes
     - double_quotes
+    
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: false
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
@@ -53,3 +58,17 @@ Style/DotPosition:
 
 Style/SpaceBeforeBlockBraces:
   Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+   
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
