@@ -4,8 +4,6 @@ AllCops:
     - 'tmp/**/*'
   TargetRubyVersion: 2.0
   DisplayCopNames: true
-  Rails:
-    Enabled: true
 
 Documentation:
   Enabled: false
@@ -15,7 +13,7 @@ Rails/Output:
     - 'db/migrate/**/*'
     - 'db/schema.rb'
 
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
 
 Layout/IndentArray:
