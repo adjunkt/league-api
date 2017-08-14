@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :sport_type do
-    name: 'Hockey'
+    name 'Hockey'
   end
 end
