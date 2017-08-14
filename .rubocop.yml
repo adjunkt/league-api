@@ -1,7 +1,18 @@
+inherit_from:
+  - .rubocop_todo.yml
+
 AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'tmp/**/*'
+    - 'Gemfile'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'db/migrate/**/*'
+    - 'spec/models/organization_spec.rb'
+    - 'config/initializers/doorkeeper.rb'
+    - 'config/initializers/backtrace_silencers.rb'
+    - 'config/initializers/devise.rb'
   TargetRubyVersion: 2.0
   DisplayCopNames: true
 
