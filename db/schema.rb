@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 20170814001051) do
     t.index ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable", using: :btree
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sport_types", force: :cascade do |t|
     t.string   "name",       limit: 128, null: false
     t.datetime "created_at",             null: false

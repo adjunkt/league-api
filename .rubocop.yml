@@ -13,6 +13,7 @@ Documentation:
 Rails/Output:
   Exclude:
     - 'db/migrate/**/*'
+    - 'db/schema.rb'
 
 
 Style/IndentArray:
