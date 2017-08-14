@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730001732) do
+ActiveRecord::Schema.define(version: 20170813235105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20170730001732) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable", using: :btree
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.integer  "organization_id", null: false
+    t.integer  "sport_type_id",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_sports_on_organization_id", using: :btree
+    t.index ["sport_type_id"], name: "index_sports_on_sport_type_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
