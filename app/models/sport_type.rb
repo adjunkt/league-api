@@ -1,2 +1,0 @@
-class SportType < ApplicationRecord
-end
