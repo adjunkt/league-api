@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
-  it 'creates an organization' do
-    expect(build(:organization, name: 'My Organization')).to be_valid
+  it 'company without identifier to be invalid' do
+    expect(build(:organization, name: nil)).to_not be_valid
+  end
+
+  it 'company without identifier to be invalid' do
+    expect(build(:organization, name: 'My Organization', identifier: nil))
+      .to_not be_valid
   end
 
   it 'has many sports' do
