@@ -4,7 +4,7 @@ describe TokensController, type: :request do
   let (:user) do
     create(
       :user,
-      email: 'leagueuser@example.com',
+      email: 'leagueapiuser@example.com',
       password: 'P@ssw0rd'
     )
   end

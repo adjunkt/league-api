@@ -19,7 +19,7 @@ Bundler.require(*Rails.groups)
 # Make env accessable anywhere via ENV['VAR']
 Dotenv.load
 
-module League
+module LeagueApi
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

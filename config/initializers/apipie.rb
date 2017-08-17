@@ -1,5 +1,5 @@
 Apipie.configure do |config|
-  config.app_name = 'League'
+  config.app_name = 'LeagueApi'
   config.api_base_url = '/'
   config.doc_base_url = '/docs'
   config.default_version = 'api'
