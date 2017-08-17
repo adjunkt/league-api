@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   use_doorkeeper do
     controllers tokens: 'tokens'
   end
