@@ -11,7 +11,7 @@ test:
   <<: *default
   username: <%= ENV['DB_USER'] %>
   host: <%= ENV['DB_HOST'] %>
-  database: league_test
+  database: league_api_test
 
 staging:
   <<: *default

@@ -14,7 +14,7 @@ jobs:
       - image: postgres:9.6
         environment:
         - POSTGRES_USER=ubuntu
-        - POSTGRES_DB=league_test
+        - POSTGRES_DB=league_api_test
 
     working_directory: ~/repo
 
@@ -44,7 +44,7 @@ jobs:
             bundle exec rake db:schema:load --trace
             bundle exec rake db:migrate
           environment:
-            DATABASE_URL: "postgres://ubuntu@localhost:5432/league_test"
+            DATABASE_URL: "postgres://ubuntu@localhost:5432/league_api_test"
 
       # run tests!
       - run:

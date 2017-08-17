@@ -6,7 +6,7 @@ services:
     build: .
     command: bundle exec rails s -p 3111 -b '0.0.0.0'
     volumes:
-      - .:/league
+      - .:/league_api
     ports:
       - "3111:3111"
     depends_on:
