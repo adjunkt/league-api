@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20170817050123) do
   enable_extension "plpgsql"
 
   create_table "leagues", force: :cascade do |t|
-    t.string   "name",             null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "organizations_id"
-    t.integer  "sports_id"
-    t.index ["organizations_id"], name: "index_leagues_on_organizations_id", using: :btree
-    t.index ["sports_id"], name: "index_leagues_on_sports_id", using: :btree
+    t.string   "name",            null: false
+    t.integer  "organization_id"
+    t.integer  "sport_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_leagues_on_organization_id", using: :btree
+    t.index ["sport_id"], name: "index_leagues_on_sport_id", using: :btree
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|

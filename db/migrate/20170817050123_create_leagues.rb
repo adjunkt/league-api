@@ -3,11 +3,10 @@ class CreateLeagues < ActiveRecord::Migration[5.0]
     create_table :leagues do |t|
       t.string :name, null: false
 
+      t.belongs_to :organization, index: true
+      t.belongs_to :sport, index: true
+
       t.timestamps
     end
-
-    add_reference :leagues, :organizations, index: true
-    add_reference :leagues, :sports, index: true
-
   end
 end
